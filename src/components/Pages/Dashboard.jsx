@@ -8,7 +8,7 @@ import { ProductContext } from "../Home/Home";
 import { BsSortNumericDownAlt } from "react-icons/bs";
 import { IoMdRemoveCircleOutline } from "react-icons/io";
 import modalImg from "../../assets/modal.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   document.title = "Dashboard| Gadget Heaven";
@@ -31,6 +31,17 @@ const Dashboard = () => {
   const btnStyleHandler = (params) => {
     setBtnStyle(params);
   };
+
+const routeTxt = useLocation().pathname
+console.log(routeTxt)
+useEffect(()=>{
+  if(routeTxt === "/dashboard"){
+    setBtnStyle(true)
+  }else{
+    setBtnStyle(false)
+  }
+},[routeTxt])
+
 
   const [totalCost, setTotalCost] = useState([]);
   useEffect(() => {

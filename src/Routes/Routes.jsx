@@ -67,6 +67,10 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
       },
       {
+        path: "/dashboard/wishlist",
+        element: <Dashboard></Dashboard>,
+      },
+      {
         path: "/refund-policy",
         element: <RefundPolicy></RefundPolicy>,
       },

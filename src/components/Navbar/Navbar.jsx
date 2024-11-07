@@ -31,7 +31,7 @@ const Navbar = ({ routTxt }) => {
     } else {
       setNavBg(false);
     }
-  });
+  },[routTxt]);
 
   const [storedCartList] = useContext(StoredCartListContext);
   const [storedWishlist2] = useContext(StoredWishListContext);
@@ -109,7 +109,7 @@ const Navbar = ({ routTxt }) => {
             </Link>
           </p>
           <p className="p-1 md:p-3 border-2 bg-gray-50 rounded-full ml-2 md:ml-4 relative">
-            <Link to="/dashboard">
+            <Link to="/dashboard/wishlist">
               <MdFavoriteBorder />
               <span className="absolute p-1 rounded-full px-2 text-sm text-darkGray font-semibold -top-[25%] -right-[20%]">{storedWishlist2 == 0 ? '' : storedWishlist2.length}</span>
             </Link>

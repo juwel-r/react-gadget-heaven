@@ -1,0 +1,182 @@
+[
+  {
+    "id": "L001",
+    "title": "MacBook Pro M3",
+    "image": "https://i.ibb.co.com/BNBbHTh/macbooks-2048px-23790-2x1-1.jpg",
+    "category": "Laptop",
+    "price": 1299.99,
+    "description": "Powerful MacBook Pro with the latest M3 chip for enhanced performance.",
+    "specification": [
+      "1. Processor Apple M3",
+      "2. RAM 16 GB",
+      "3. Storage 512 GB SSD"
+    ],
+    "availability": true,
+    "rating": 3.9
+  },
+  {
+    "id": "SW001",
+    "title": "Watch Series 9",
+    "image": "https://i.ibb.co.com/6srtwFM/Apple-Watch-Series.jpg",
+    "category": "Watch",
+    "price": 414.99,
+    "description": "Latest Apple Watch with health monitoring and fitness tracking.",
+    "specification": [
+      "1. Battery Life 18 hours",
+      "2. Water Resistance 50 meters"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "id": "IP002",
+    "title": "iPhone 14 Pro",
+    "image": "https://i.ibb.co.com/0ZgKwVc/Apple-i-Phone-14-Pro-i-Phone-14-Pro-Max-hero-220907-Full-Bleed-Image-jpg-large.jpg",
+    "category": "Phone",
+    "price": 799.99,
+    "description": "Reliable iPhone with impressive battery life and camera quality.",
+    "specification": [
+      "1. Screen Size 6.1 inches",
+      "2. Storage 128 GB"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "id": "A001",
+    "title": "AirPods Pro",
+    "image": "https://i.ibb.co.com/wpyr5ZW/airpods-pro-usb-c-5.jpg",
+    "category": "Accessories",
+    "price": 249.99,
+    "description": "Wireless noise-canceling AirPods with superior sound quality.",
+    "specification": [
+      "1. Battery Life 4.5 hours",
+      "2. Connectivity Bluetooth 5.0"
+    ],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "id": "P003",
+    "title": "OnePlus 12",
+    "image": "https://i.ibb.co.com/CKPFMjv/One-Plus-12-Smart-Phone.jpg",
+    "category": "Phone",
+    "price": 749.99,
+    "description": "OnePlus 12 with high-speed charging and smooth user experience.",
+    "specification": [
+      "1. Screen Size 6.5 inches",
+      "2. Battery 4600 mAh"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+  {
+    "id": "L002",
+    "title": "Dell XPS 13 Laptop",
+    "image": "https://i.ibb.co.com/TgzwnjK/dell-xps-16-9640-xtz4.jpg",
+    "category": "Laptop",
+    "price": 1099.99,
+    "description": "Compact and powerful Dell XPS 13 with an InfinityEdge display.",
+    "specification": [
+      "1. Processor Intel i7",
+      "2. RAM 16 GB",
+      "3. Storage 512 GB SSD"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "id": "L003",
+    "title": "HP Spectre x360",
+    "image": "https://i.ibb.co.com/PQxmBTw/HP-Spectre-x360.jpg",
+    "category": "Laptop",
+    "price": 1249.99,
+    "description": "Convertible laptop with a touchscreen, ideal for creative tasks.",
+    "specification": [
+      "1. Processor Intel i7",
+      "2. RAM 16 GB",
+      "3. Storage 1 TB SSD"
+    ],
+    "availability": false,
+    "rating": 4.6
+  },
+  {
+    "id": "IP001",
+    "title": "iPhone 15 Pro",
+    "image": "https://i.ibb.co.com/Fsp1Hhw/i-Phone-15-Pro.jpg",
+    "category": "Phone",
+    "price": 1199.99,
+    "description": "The latest iPhone model with enhanced camera and processing power.",
+    "specification": [
+      "1. Screen Size 6.1 inches",
+      "2. Storage 256 GB"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "id": "P004",
+    "title": "Galaxy S24 Ultra",
+    "image": "https://i.ibb.co.com/tLJ1VsF/Samsung-Galaxy-S24-Ultra.jpg",
+    "category": "Phone",
+    "price": 1149.99,
+    "description": "Samsung’s flagship Galaxy S24 Ultra with advanced camera and performance.",
+    "specification": [
+      "1. Screen Size 6.8 inches",
+      "2. Battery 5000 mAh"
+    ],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "id": "SW002",
+    "title": "OnePlus Watch 2",
+    "image": "https://i.ibb.co.com/0ygdS54/One-Plus-Watch-2.jpg",
+    "category": "Watch",
+    "price": 429.99,
+    "description": "Apple Watch Series 9 with advanced health tracking and seamless iOS integration.",
+    "specification": [
+        "1. Display Size 1.9 inches",
+        "2. Battery Life Up to 18 hours",
+        "3. Water Resistance Up to 50 meters",
+        "4. Health Features ECG, Blood Oxygen, Heart Rate Monitor"
+    ],
+    "availability": true,
+    "rating": 4.8
+},
+
+  {
+    "id": "P006",
+    "title": "Galaxy S21 Ultra",
+    "image": "https://i.ibb.co.com/1rdfBC4/gsmarena-027.jpg",
+    "category": "Phone",
+    "price": 999.99,
+    "description": "Flagship smartphone with advanced camera and display technology.",
+    "specification": [
+      "1. Display 6.8 inches, Dynamic AMOLED 2X",
+      "2. Processor Exynos 2100 / Snapdragon 888",
+      "3. RAM 12GB / 16GB",
+      "4. Storage 128GB / 256GB / 512GB",
+      "5. Battery 5000mAh",
+      "6. Color Phantom Black",
+      "7. Camera 108MP wide, 10MP periscope telephoto, 12MP ultrawide"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "id": "P007",
+    "title": "Sony Xperia 1 V",
+    "image": "https://i.ibb.co.com/HHWYjd7/Sony-Xperia-1-V.jpg",
+    "category": "Phone",
+    "price": 949.00,
+    "description": "Sony Xperia 1 V with a 4K OLED display and pro-grade camera system.",
+    "specification": [
+      "1. Screen Size 6.5 inches",
+      "2. Battery 5000 mAh",
+      "3. Triple Camera 12MP (wide, telephoto, ultra-wide)"
+    ],
+    "availability": true,
+    "rating": 4.5
+  }
+]

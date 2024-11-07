@@ -1,0 +1,17 @@
+.nav-ul .active {
+background: linear-gradient(135deg, #d300fdce, #6800b3);
+/* border:1px solid white; */
+border-radius: 100px;
+}
+
+.nav-ul a{
+  padding: 4px 12px;
+}
+
+.active button, .buttonColor{
+  background: linear-gradient(135deg, #ff09f3ce, #4B0082);
+  color: white;
+}
+.active p{
+  color: rgb(255, 255, 255)
+    }

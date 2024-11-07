@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link, NavLink, useParams } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdFavoriteBorder } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
+import { StoredCartListContext, StoredWishListContext } from "../Home/Home";
 
 //npm install @react-icons/all-files --save ====>>install react icons
 
@@ -31,6 +32,9 @@ const Navbar = ({ routTxt }) => {
       setNavBg(false);
     }
   });
+
+  const [storedCartList] = useContext(StoredCartListContext);
+  const [storedWishlist2] = useContext(StoredWishListContext);
 
   return (
     <div
@@ -79,22 +83,35 @@ const Navbar = ({ routTxt }) => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <div id="nav-ul" className="nav-ul menu menu-horizontal font-semibold">
-          <NavLink to="/"><p>Home</p></NavLink>
-            <NavLink to="/statistics"><p>Statistics</p></NavLink>
-            <NavLink to="/dashboard"><p>Dashboard</p></NavLink>
-            <NavLink to="/refund-policy"><p>Refund Policy</p></NavLink>
+          <div
+            id="nav-ul"
+            className="nav-ul menu menu-horizontal font-semibold"
+          >
+            <NavLink to="/">
+              <p>Home</p>
+            </NavLink>
+            <NavLink to="/statistics">
+              <p>Statistics</p>
+            </NavLink>
+            <NavLink to="/dashboard">
+              <p>Dashboard</p>
+            </NavLink>
+            <NavLink to="/refund-policy">
+              <p>Refund Policy</p>
+            </NavLink>
           </div>
         </div>
         <div className={`navbar-end ${navBg ? "text-black" : ""}`}>
-          <p className="p-1 md:p-3 border-2 bg-gray-50 rounded-full ">
+          <p className="p-1 md:p-3 border-2 bg-gray-50 rounded-full relative">
             <Link to="/dashboard">
               <FiShoppingCart />
+              <span className="absolute p-1 rounded-full px-2 text-sm text-darkGray font-semibold -top-[25%] -right-[20%]">{storedCartList == 0 ? '' : storedCartList.length}</span>
             </Link>
           </p>
-          <p className="p-1 md:p-3 border-2 bg-gray-50 rounded-full ml-2 md:ml-4">
+          <p className="p-1 md:p-3 border-2 bg-gray-50 rounded-full ml-2 md:ml-4 relative">
             <Link to="/dashboard">
               <MdFavoriteBorder />
+              <span className="absolute p-1 rounded-full px-2 text-sm text-darkGray font-semibold -top-[25%] -right-[20%]">{storedWishlist2 == 0 ? '' : storedWishlist2.length}</span>
             </Link>
           </p>
         </div>

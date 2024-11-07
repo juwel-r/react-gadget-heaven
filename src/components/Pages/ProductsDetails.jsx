@@ -6,6 +6,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { setLS, setWishLS, storedWishList } from "./dashboardCart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { StoredCartListContext, StoredWishListContext } from "../Home/Home";
 
 const ProductsDetails = () => {
   document.title = "Product Details | Gadget Heaven";
@@ -79,6 +80,21 @@ const ProductsDetails = () => {
     return starsArray;
   };
 
+
+  const [storedCartList, setStoredCartList] = useContext(StoredCartListContext);
+  const cartSetOnStateHandler = (id) => {
+    const cartList = [...storedCartList,id];
+    setStoredCartList(cartList);
+  };
+
+
+  const [storedWishList2, setStoredWishList] = useContext(StoredWishListContext);
+  const wishSetOnStateHandler = (id) => {
+    const wishList = [...storedWishList2,id];
+    setStoredWishList(wishList);
+  };
+
+
   return (
     <div>
       <div className="bg-primary relative">
@@ -125,13 +141,14 @@ const ProductsDetails = () => {
                 onClick={() => {
                   cartHandler(id);
                   notify();
+                  cartSetOnStateHandler(id)
                 }}
                 className="btn hover:bg-primary/70 transition-all duration-200 flex items-center gap-2 bg-[#9538E2] px-6 py-2 font-bold text-white rounded-full"
               >
                 Add to Cart
               </button>
               <button
-                onClick={() => wishlistHandler(id)}
+                onClick={() => {wishlistHandler(id),wishSetOnStateHandler(id)}}
                 disabled={isDisabled}
                 className="btn w-12 hover:bg-gray-300 transition-all duration-200 text-xl rounded-full border"
               >

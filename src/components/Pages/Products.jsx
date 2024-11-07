@@ -8,8 +8,8 @@ const Products = () => {
   useEffect(() => {
     setProducts(p);
   }, [products]);
-  const [categories, setCategories] = useState([]);
 
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     fetch("categories.json")
       .then((res) => res.json())

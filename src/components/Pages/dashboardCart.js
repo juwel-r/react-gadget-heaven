@@ -15,6 +15,14 @@ const setLS = (id) => {
   localStorage.setItem("cart", JSON.stringify(storedCart));
 };
 
+// Remove cart from LS
+function removeItemFromCart(id) {
+  let cartAfterDelete = storedCartList().filter(p => p !== id);
+  localStorage.setItem('cart', JSON.stringify(cartAfterDelete));
+}
+
+
+
 //  Wish List ========>>>>
 const storedWishList = () => {
   const storedCart = localStorage.getItem("wishList");
@@ -32,4 +40,11 @@ const setWishLS = (id) => {
   localStorage.setItem("wishList", JSON.stringify(storedCart));
 };
 
-export { setLS, storedCartList, storedWishList, setWishLS };
+// Remove Wishlist from LS
+function removeFromWishlist(id) {
+  let cartAfterDelete = storedWishList().filter(p => p !== id);
+  localStorage.setItem('wishList', JSON.stringify(cartAfterDelete));
+}
+
+
+export { setLS, storedCartList, storedWishList, setWishLS, removeItemFromCart, removeFromWishlist };

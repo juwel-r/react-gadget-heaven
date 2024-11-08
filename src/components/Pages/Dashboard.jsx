@@ -10,7 +10,11 @@ import {
   storedCartList,
   storedWishList,
 } from "./dashboardCart";
-import { ProductContext, StoredCartListContext, StoredWishListContext } from "../Home/Home";
+import {
+  ProductContext,
+  StoredCartListContext,
+  StoredWishListContext,
+} from "../Home/Home";
 import { BsSortNumericDownAlt } from "react-icons/bs";
 import { IoMdRemoveCircleOutline } from "react-icons/io";
 import modalImg from "../../assets/modal.png";
@@ -41,8 +45,7 @@ const Dashboard = () => {
     removeItemFromCart(id);
     const deleteProduct = cartProduct.find((p) => p.id == id);
     setTotalCost(setTotalCost - deleteProduct.price);
-    setStoredCartList2(storedCartList2.filter(pId => pId != id))
-
+    setStoredCartList2(storedCartList2.filter((pId) => pId != id));
   };
 
   const [btnStyle, setBtnStyle] = useState(true);
@@ -100,14 +103,16 @@ const Dashboard = () => {
     navigate("/");
   };
 
-  const [storedWishList2, setStoredWishList] = useContext(StoredWishListContext)
+  const [storedWishList2, setStoredWishList] = useContext(
+    StoredWishListContext
+  );
   //Delete From Wishlist
-  //Decrease Wishlist Counter 
+  //Decrease Wishlist Counter
   const wishListDeleteHandler = (id) => {
     const afterDelete = wishlistProduct.filter((p) => p.id !== id);
     setWishlist(afterDelete);
     removeFromWishlist(id);
-    setStoredWishList(storedWishList2.filter(pId => pId != id))
+    setStoredWishList(storedWishList2.filter((pId) => pId != id));
   };
 
   //Add to cart from Wishlist
@@ -148,21 +153,23 @@ const Dashboard = () => {
 
       {btnStyle ? (
         <section className="w-10/12 mx-auto my-8">
-          <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Cart</h1>
+          <div className="flex md:flex-row flex-col justify-between items-center">
+
+              <h1 className="hidden md:block text-2xl font-bold">Cart</h1>
+              <h1 className="text-2xl font-bold mb-3 md:mb-0">Total Cost: {totalCost}</h1>
+
+            <div className="detailsBtn rounded-full hover:bg-primary/20 mb-4 md:mb-0">
+              <button
+                onClick={sortDescending}
+                className="mt-5bg-white hover:text-white px-6 py-2 rounded-full border text-lg btn hover:bg-primary/20 border-none"
+              >
+                Sort by Price{" "}
+                <span className="text-xl">
+                  <BsSortNumericDownAlt />
+                </span>
+              </button>
+            </div>
             <div className="flex justify-end items-center gap-6 ">
-              <h1 className="text-2xl font-bold">Total Cost: {totalCost}</h1>
-              <div className="detailsBtn rounded-full hover:bg-primary/20">
-                <button
-                  onClick={sortDescending}
-                  className="bg-white hover:text-white px-6 py-2 rounded-full border text-lg btn hover:bg-primary/20 border-none"
-                >
-                  Sort by Price{" "}
-                  <span className="text-xl">
-                    <BsSortNumericDownAlt />
-                  </span>
-                </button>
-              </div>
               <button
                 disabled={totalCost == 0 ? true : false}
                 onClick={() => {
@@ -181,7 +188,7 @@ const Dashboard = () => {
             {cartProduct.map(
               (product) =>
                 product && (
-                  <div className="grid grid-cols-[1fr_3fr_1fr] items-center bg-white rounded-2xl p-8 gap-6">
+                  <div className="grid md:grid-cols-[1fr_3fr_1fr] items-center bg-white rounded-2xl p-8 gap-6">
                     <div>
                       <img
                         className="rounded-xl"
@@ -189,18 +196,28 @@ const Dashboard = () => {
                         alt={product.title}
                       />
                     </div>
+
                     <div className="space-y-3">
                       <p className="text-2xl font-bold">{product.title}</p>
                       <p className="text-lg text-darkGray">
                         {product.description}
                       </p>
-                      <p className="text-xl font-bold">
-                        Price: ${product.price}
-                      </p>
+
+                      <div className="flex justify-between items-center">
+                        <p className="text-xl font-bold">
+                          Price: ${product.price}
+                        </p>
+                        <div
+                          onClick={() => cartListDeleteHandler(product.id)}
+                          className="text-3xl md:hidden hover:cursor-pointer text-red-600 font-extrabold md:justify-self-end self-start"
+                        >
+                          <IoMdRemoveCircleOutline />
+                        </div>
+                      </div>
                     </div>
                     <div
                       onClick={() => cartListDeleteHandler(product.id)}
-                      className="text-3xl hover:cursor-pointer text-red-600 font-extrabold justify-self-end self-start"
+                      className="hidden md:block text-3xl hover:cursor-pointer text-red-600 font-extrabold md:justify-self-end self-start"
                     >
                       <IoMdRemoveCircleOutline />
                     </div>
@@ -247,7 +264,7 @@ const Dashboard = () => {
             {wishlistProduct.map(
               (product) =>
                 product && (
-                  <div className="grid grid-cols-[1fr_3fr_1fr] items-center bg-white rounded-2xl p-8 gap-6">
+                  <div className="grid md:grid-cols-[1fr_3fr_1fr] items-center bg-white rounded-2xl p-8 gap-6">
                     <div>
                       <img
                         className="rounded-xl"
@@ -263,19 +280,27 @@ const Dashboard = () => {
                       <p className="text-xl font-bold">
                         Price: ${product.price}
                       </p>
-                      <button
-                        onClick={() => cartHandler(id)}
-                        className="flex items-center gap-2 bg-[#9538E2] px-6 py-2 font-bold text-white rounded-full"
-                      >
-                        Add to Cart
-                        <span className="text-xl">
-                          <FiShoppingCart />
-                        </span>
-                      </button>
+                      <div className="flex justify-between items-center">
+                        <button
+                          onClick={() => cartHandler(id)}
+                          className="flex items-center gap-2 bg-[#9538E2] px-6 py-2 font-bold text-white rounded-full"
+                        >
+                          Add to Cart
+                          <span className="text-xl">
+                            <FiShoppingCart />
+                          </span>
+                        </button>
+                        <div
+                          onClick={() => wishListDeleteHandler(product.id)}
+                          className="md:hidden text-3xl hover:cursor-pointer text-red-600 font-extrabold md:justify-self-end self-start"
+                        >
+                          <IoMdRemoveCircleOutline />
+                        </div>
+                      </div>
                     </div>
                     <div
                       onClick={() => wishListDeleteHandler(product.id)}
-                      className="text-3xl hover:cursor-pointer text-red-600 font-extrabold justify-self-end self-start"
+                      className="hidden md:block text-3xl hover:cursor-pointer text-red-600 font-extrabold md:justify-self-end self-start"
                     >
                       <IoMdRemoveCircleOutline />
                     </div>

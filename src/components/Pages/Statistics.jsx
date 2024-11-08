@@ -20,7 +20,7 @@ document.title="Statistics | Gadget Heaven"
 
  
   return (
-    <div style={{ width: '100%', height: 500 }}>
+    <div style={{ width: '100%'}} className="h-80 md:h-[500px]" >
     <ResponsiveContainer>
       <ComposedChart
         width={500}

@@ -20,12 +20,12 @@ const Products = () => {
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center pb-8">
         Explore Cutting-Edge Gadgets
       </h1>
-      <div className="grid grid-cols-[1fr_4fr] gap-6">
-        <div className="flex flex-col w-full bg-white h-fit gap-4 p-6 rounded-2xl">
+      <div className="grid md:grid-cols-[1.5fr_4fr] lg:grid-cols-[1fr_4fr] gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-1 w-full bg-white h-fit gap-4 p-3 rounded-2xl">
           {categories.map((cat) => (
             <div key={cat.id}>
               <NavLink onClick={""} to={`${cat.path}`}>
-                <button className="text-left text-nowrap font-semibold text-darkGray rounded-full bg-gray-100 px-6 pr-8 py-3 w-full">
+                <button className="text-left text-nowrap font-semibold text-darkGray rounded-full bg-gray-100 lg:px-5 md:px-4 px-3 pr-8 py-3 w-full">
                   {" "}
                   {cat.name}
                 </button>

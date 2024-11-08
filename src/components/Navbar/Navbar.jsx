@@ -90,11 +90,11 @@ const Navbar = ({ routTxt }) => {
             <NavLink to="/">
               <p>Home</p>
             </NavLink>
-            <NavLink to="/statistics">
-              <p>Statistics</p>
-            </NavLink>
             <NavLink to="/dashboard">
               <p>Dashboard</p>
+            </NavLink>
+            <NavLink to="/statistics">
+              <p>Statistics</p>
             </NavLink>
             <NavLink to="/refund-policy">
               <p>Refund Policy</p>
@@ -105,13 +105,13 @@ const Navbar = ({ routTxt }) => {
           <p className="p-1 md:p-3 border-2 bg-gray-50 rounded-full relative">
             <Link to="/dashboard">
               <FiShoppingCart />
-              <span className="absolute p-1 rounded-full px-2 text-sm text-darkGray font-semibold -top-[25%] -right-[20%]">{storedCartList == 0 ? '' : storedCartList.length}</span>
+              <span className="absolute md:h-[20px] h-[15px] w-[15px] md:w-[20px] flex justify-center items-center rounded-full text-[12px] md:text-sm text-darkGray font-semibold md:-top-[20%] -top-[30%] md:right-[0%] -right-[20%] bg-gray-100">{storedCartList == 0 ? '' : storedCartList.length}</span>
             </Link>
           </p>
           <p className="p-1 md:p-3 border-2 bg-gray-50 rounded-full ml-2 md:ml-4 relative">
             <Link to="/dashboard/wishlist">
               <MdFavoriteBorder />
-              <span className="absolute p-1 rounded-full px-2 text-sm text-darkGray font-semibold -top-[25%] -right-[20%]">{storedWishlist2 == 0 ? '' : storedWishlist2.length}</span>
+              <span className="absolute md:h-[20px] h-[15px] w-[15px] md:w-[20px] flex justify-center items-center rounded-full text-[12px] md:text-sm text-darkGray font-semibold md:-top-[20%] -top-[30%] md:right-[0%] -right-[20%] bg-gray-100">{storedWishlist2 == 0 ? '' : storedWishlist2.length}</span>
             </Link>
           </p>
         </div>

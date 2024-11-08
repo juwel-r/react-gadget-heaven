@@ -105,13 +105,13 @@ const Navbar = ({ routTxt }) => {
           <p className="p-1 md:p-3 border-2 bg-gray-50 rounded-full relative">
             <Link to="/dashboard">
               <FiShoppingCart />
-              <span className="absolute md:h-[20px] h-[15px] w-[15px] md:w-[20px] flex justify-center items-center rounded-full text-[12px] md:text-sm text-darkGray font-semibold md:-top-[20%] -top-[30%] md:right-[0%] -right-[20%] bg-gray-100">{storedCartList == 0 ? '' : storedCartList.length}</span>
+              <span className={`absolute md:h-[20px] h-[15px] w-[15px] md:w-[20px] flex justify-center items-center rounded-full text-[12px] md:text-sm text-darkGray font-semibold md:-top-[20%] -top-[30%] md:right-[0%] -right-[20%] bg-gray-100 ${storedCartList < 1 ? "hidden" : ""}`}>{storedCartList == 0 ? '' : storedCartList.length}</span>
             </Link>
           </p>
           <p className="p-1 md:p-3 border-2 bg-gray-50 rounded-full ml-2 md:ml-4 relative">
             <Link to="/dashboard/wishlist">
               <MdFavoriteBorder />
-              <span className="absolute md:h-[20px] h-[15px] w-[15px] md:w-[20px] flex justify-center items-center rounded-full text-[12px] md:text-sm text-darkGray font-semibold md:-top-[20%] -top-[30%] md:right-[0%] -right-[20%] bg-gray-100">{storedWishlist2 == 0 ? '' : storedWishlist2.length}</span>
+              <span className={`absolute md:h-[20px] h-[15px] w-[15px] md:w-[20px] flex justify-center items-center rounded-full text-[12px] md:text-sm text-darkGray font-semibold md:-top-[20%] -top-[30%] md:right-[0%] -right-[20%] bg-gray-100 ${storedWishlist2 < 1 ? "hidden" : ""}`}>{storedWishlist2 == 0 ? '' : storedWishlist2.length}</span>
             </Link>
           </p>
         </div>

@@ -4,6 +4,7 @@ A React-based product rating website where users can view and rate various produ
 
 ## Live Website Link
 - https://gadget-heaven-r6.netlify.app/
+- https://gadget-heaven-r6.surge.sh/ "update link"
 
 
 ## Project Overview

@@ -12,6 +12,9 @@ const ProductsDetails = () => {
   document.title = "Product Details | Gadget Heaven";
   const { pId } = useParams();
   const [products, setProducts] = useState([]);
+  const [isDisabled, setDisabled] = useState(false);
+  const [storedCartList, setStoredCartList] = useContext(StoredCartListContext);
+
   useEffect(() => {
     fetch("/product.json")
       .then((res) => res.json())
@@ -30,23 +33,33 @@ const ProductsDetails = () => {
     rating,
   } = products || {};
 
+  //Set cart to Local storage
   const cartHandler = (id) => {
     setLS(id);
   };
 
-  const [isDisabled, setDisabled] = useState(false);
+  //add Wishlist, disable and show toastify
   const wishlistHandler = (id) => {
     const storedList = storedWishList();
     const thisId = storedList.find((p) => p === id);
     if (thisId) {
-      notifyWarn();
       setDisabled(true);
     } else {
       setWishLS(id);
-      notifyW();
+      notifyWishlist();
       setDisabled(true);
+      wishSetOnStateHandler(id);
     }
   };
+
+  //disable wishList after reload
+  useEffect(() => {
+    const storedList = storedWishList();
+    const thisId = storedList.find((p) => p === pId);
+    if (thisId) {
+      setDisabled(true);
+    }
+  }, []);
 
   const notify = () =>
     toast.success("Successfully Added to Cart!", {
@@ -54,14 +67,8 @@ const ProductsDetails = () => {
       autoClose: 3000,
     });
 
-  const notifyW = () =>
+  const notifyWishlist = () =>
     toast.success("Successfully Added to Wishlist!", {
-      position: "top-center",
-      autoClose: 3000,
-    });
-
-  const notifyWarn = () =>
-    toast.warn("Already Added in Wishlist!", {
       position: "top-center",
       autoClose: 3000,
     });
@@ -80,20 +87,18 @@ const ProductsDetails = () => {
     return starsArray;
   };
 
-
-  const [storedCartList, setStoredCartList] = useContext(StoredCartListContext);
   const cartSetOnStateHandler = (id) => {
-    const cartList = [...storedCartList,id];
+    const cartList = [...storedCartList, id];
     setStoredCartList(cartList);
   };
 
-
-  const [storedWishList2, setStoredWishList] = useContext(StoredWishListContext);
+  const [storedWishList2, setStoredWishList] = useContext(
+    StoredWishListContext
+  );
   const wishSetOnStateHandler = (id) => {
-    const wishList = [...storedWishList2,id];
+    const wishList = [...storedWishList2, id];
     setStoredWishList(wishList);
   };
-
 
   return (
     <div>
@@ -141,14 +146,16 @@ const ProductsDetails = () => {
                 onClick={() => {
                   cartHandler(id);
                   notify();
-                  cartSetOnStateHandler(id)
+                  cartSetOnStateHandler(id);
                 }}
                 className="btn hover:bg-primary/70 transition-all duration-200 flex items-center gap-2 bg-[#9538E2] px-6 py-2 font-bold text-white rounded-full"
               >
                 Add to Cart
               </button>
               <button
-                onClick={() => {wishlistHandler(id),wishSetOnStateHandler(id)}}
+                onClick={() => {
+                  wishlistHandler(id);
+                }}
                 disabled={isDisabled}
                 className="btn w-12 hover:bg-gray-300 transition-all duration-200 text-xl rounded-full border"
               >
